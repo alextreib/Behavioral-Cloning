@@ -125,46 +125,7 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 #### 2. Final Model Architecture
 
 The final model architecture (train.py lines 26-58) looks like this:
-
-Layer (type)                     Output Shape          Param #     Connected to
-====================================================================================================
-lambda_1 (Lambda)                (None, 66, 200, 3)    0           lambda_input_1[0][0]
-____________________________________________________________________________________________________
-convolution2d_1 (Convolution2D)  (None, 31, 98, 24)    1824        lambda_1[0][0]
-____________________________________________________________________________________________________
-dropout_1 (Dropout)              (None, 31, 98, 24)    0           convolution2d_1[0][0]
-____________________________________________________________________________________________________
-convolution2d_2 (Convolution2D)  (None, 14, 47, 36)    21636       dropout_1[0][0]
-____________________________________________________________________________________________________
-dropout_2 (Dropout)              (None, 14, 47, 36)    0           convolution2d_2[0][0]
-____________________________________________________________________________________________________
-convolution2d_3 (Convolution2D)  (None, 5, 22, 48)     43248       dropout_2[0][0]
-____________________________________________________________________________________________________
-dropout_3 (Dropout)              (None, 5, 22, 48)     0           convolution2d_3[0][0]
-____________________________________________________________________________________________________
-convolution2d_4 (Convolution2D)  (None, 3, 20, 64)     27712       dropout_3[0][0]
-____________________________________________________________________________________________________
-dropout_4 (Dropout)              (None, 3, 20, 64)     0           convolution2d_4[0][0]
-____________________________________________________________________________________________________
-convolution2d_5 (Convolution2D)  (None, 1, 18, 64)     36928       dropout_4[0][0]
-____________________________________________________________________________________________________
-flatten_1 (Flatten)              (None, 1152)          0           convolution2d_5[0][0]
-____________________________________________________________________________________________________
-dropout_5 (Dropout)              (None, 1152)          0           flatten_1[0][0]
-____________________________________________________________________________________________________
-dense_1 (Dense)                  (None, 100)           115300      dropout_5[0][0]
-____________________________________________________________________________________________________
-dropout_6 (Dropout)              (None, 100)           0           dense_1[0][0]
-____________________________________________________________________________________________________
-dense_2 (Dense)                  (None, 50)            5050        dropout_6[0][0]
-____________________________________________________________________________________________________
-dropout_7 (Dropout)              (None, 50)            0           dense_2[0][0]
-____________________________________________________________________________________________________
-dense_3 (Dense)                  (None, 10)            510         dropout_7[0][0]
-____________________________________________________________________________________________________
-dropout_8 (Dropout)              (None, 10)            0           dense_3[0][0]
-____________________________________________________________________________________________________
-dense_4 (Dense)                  (None, 1)             11          dropout_8[0][0]
+![Model architecture](doc/neural_network.jpg)
 
 
 #### 3. Creation of the Training Set & Training Process
@@ -173,10 +134,18 @@ To capture good driving behavior, I first recorded two laps on track one using c
 
 ![This picture show how the center training data is accumulated](doc/center.jpg)
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+I then recorded the vehicle recovering from thethe sides of the road back to center so that the vehicle would learn how to react in this situation. These images show what a recovery looks like starting from the left side of the road:
+
+From the left...
 
 ![From the left...](doc/moving_1.jpg)
+
+...slowly...
+
 ![...slowly...](doc/moving_2.jpg)
+
+...to the middle
+
 ![...to the middle](doc/moving_3.jpg)
 
 Then I repeated this process on track two in order to get more data points.
