@@ -195,21 +195,21 @@ dense_4 (Dense)                  (None, 1)             11          dropout_8[0][
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
-![This picture show how the center training data is accumulated][doc/center.jpg]
+![This picture show how the center training data is accumulated](doc/center.jpg)
 
 I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
 
-![From the left...][doc/moving_1.jpg]
-![...slowly...][doc/moving_2.jpg]
-![...to the middle][doc/moving_3.jpg]
+![From the left...](doc/moving_1.jpg)
+![...slowly...](doc/moving_2.jpg)
+![...to the middle](doc/moving_3.jpg)
 
 Then I repeated this process on track two in order to get more data points.
 
 To augment the data sat, I also flipped images in order to reduce a potential bias.
 For example, here is an image that has then been flipped:
 
-![This picture represents how the dataset could be biased.][doc/moving_1.jpg]
-![Through flipping the image, the bias is removed.][doc/moving_1_flipped.jpg]
+![This picture represents how the dataset could be biased.](doc/moving_1.jpg)
+![Through flipping the image, the bias is removed.](doc/moving_1_flipped.jpg)
 
 After the collection process, around 15000 images are available for training, additionally to the Udacity training data.
 
